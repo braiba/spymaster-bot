@@ -1,0 +1,32 @@
+{       
+    "name": "braiba/spymaster-bot", 
+    "type": "app",
+    "description": "Bot for playing a Twitter variant of the boardgame Codenames",
+    "keywords": ["twitter", "bot", "Codenames"],
+    "license": "MIT",
+    "homepage": "https://twitter.com/spymaster_bot",
+    "authors": [
+        {
+            "name": "Thomas Bickley",
+            "email": "braiba@hotmail.com",
+            "homepage": "https://twitter.com/braiba",
+            "role": "Developer"
+        }
+    ],
+    "support": {
+        "source": "https://github.com/braiba/spymaster-bot",
+        "issues": "https://github.com/braiba/spymaster-bot/issues"
+    },
+    "require": {
+        "php": ">=5.5.0",
+        "abraham/twitteroauth": "~0.6.0"
+    },
+    "require-dev": {
+    },
+    "autoload": {
+        "psr-4": {
+            "Braiba\\Spymaster\\": "src",
+						"Braiba\\": "lib"
+        }
+    }
+}

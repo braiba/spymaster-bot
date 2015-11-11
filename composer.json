@@ -22,6 +22,7 @@
         "abraham/twitteroauth": "~0.6.0"
     },
     "require-dev": {
+        "heroku/heroku-buildpack-php": "*"
     },
     "autoload": {
         "psr-4": {

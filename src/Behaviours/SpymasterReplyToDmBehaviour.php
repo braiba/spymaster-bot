@@ -48,9 +48,11 @@ class SpymasterReplyToDmBehaviour extends ReplyToDmBehaviour
     {
         $text = '--- Target words ---' . PHP_EOL . implode(PHP_EOL, $game->getScorableWords());
         $text .= PHP_EOL . PHP_EOL;
-        $text .= '--- Other words ---' . PHP_EOL . implode(PHP_EOL, $game->getNonScorableWords());
-        $text .= PHP_EOL . PHP_EOL;
         $text .= '--- Assassin ---' . PHP_EOL . implode(PHP_EOL, $game->getAssassinWords());
+        $text .= PHP_EOL . PHP_EOL;
+        $text .= '--- Other words ---' . PHP_EOL . implode(PHP_EOL, $game->getNeutralWords());
+        $text .= PHP_EOL . PHP_EOL;
+        $text .= 'Respond with a clue (word number) to begin the game. Your clue will be tweeted with an image of the board';
 
         return $text;
     }

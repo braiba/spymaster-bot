@@ -35,7 +35,8 @@ class SpymasterReplyToTweetBehaviour extends ReplyToTweetBehaviour
         }
         
         $text  = substr($text, strlen($username) + 2);
-        $words = explode(',', $text);
+        $text  = preg_replace('/[^A-Za-z]+/', ' ', $text);
+        $words = explode(' ', trim($text));
         
         // TODO: validate this shit
         

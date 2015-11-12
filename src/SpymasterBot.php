@@ -18,7 +18,7 @@ class SpymasterBot extends TwitterBot
     public function __construct($username)
     {
         parent::__construct($username);
-        $this->behaviours[] = new SyncFollowersBehaviour();
+        // $this->behaviours[] = new SyncFollowersBehaviour();
         $this->behaviours[] = new SpymasterReplyToDmBehaviour();
         $this->behaviours[] = new SpymasterReplyToTweetBehaviour();
         $this->behaviours[] = new SpymasterEndGameBehaviour();

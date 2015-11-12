@@ -62,9 +62,9 @@ class SpymasterGame
         return $this->scorableWords;
     }
 
-    function getNonScorableWords()
+    function getNeutralWords()
     {
-        return array_diff($this->words, $this->scorableWords);
+        return array_diff($this->words, $this->scorableWords, $this->assassinWords);
     }
 
     function getAssassinWords()
@@ -318,7 +318,7 @@ SELECT
 guesser,
 score
 FROM spymaster_game_guess
-WHERE id = :spymaster_game_id
+WHERE spymaster_game_id = :spymaster_game_id
 ORDER BY score DESC
 LIMIT 5
 SQL;
@@ -338,10 +338,10 @@ SQL;
         $lines = [];
         $i     = 1;
         while ($row = $result->fetch()) {
-            $lines[] = $i++ . '. @' . $row['guesser'] . ': ' . $row['score'];
+            $lines[] = $i++ . '. @' . $row['guesser'] . ': ' . ($row['score'] === null ? 'DIED' : $row['score']);
         }
         
-        $text = implode(PHP_EOL, $lines);
+        $text = implode("\n", $lines);
         $bot->getClient()->tweet(
             [
                 'status' => $text,
